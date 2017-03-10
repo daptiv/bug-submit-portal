@@ -3,19 +3,45 @@
 
   <body>
     <div class="form">
-      <div><label>Title <input id="title" type="text" /></label></div>
-      <div id="type">
-        Type of feedback
-        <label><input type="radio" name="type" value="suggestion" /> Suggestion</label>
-        <label><input type="radio" name="type" value="feedback" /> Feedback</label>
-      </div>
-      <div><label>Category <input id="category" type="text" /></label></div>
-      <div><label>Description <input id="description" type="textarea" /></label></div>
+      <h1>Bughouse Feedback System</h1>
+      <h2>File your feedback on Daptiv</h2>
 
-      <button onclick="sendBug()">Submit</button>
+      <div class="side-by-side-controls">
+        <label>Title <input id="title" type="text" /></label>
+        <label>
+          Category
+          <select id="category">
+            <option>UI</option>
+            <option>Other</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="simple-label">Page name or URL<input id="url" type="text" /></label>
+
+      <div class="simple-label">
+        Description
+        <div id="type">
+          <label><input type="radio" name="type" value="suggestion" /> Suggestion</label>
+          <label><input type="radio" name="type" value="feedback" /> Feedback</label>
+        </div>
+        <textarea id="description"></textarea>
+      </div>
+
+      <fieldset class="simple-label">
+        <legend>Upload Screenshot</legend>
+        <input id="screenshot" type=file accept="image/*" />
+        <img id="screenshot-data">
+      </fieldset>
+
+      <div class="side-by-side-controls">
+        <label>Your Name<input id="name" type="text" /></label>
+        <button onclick="sendBug()">Submit</button>
+      </div>
     </div>
   </body>
 
+  <link rel="stylesheet" type="text/css" href="/main.css">
   <script type="application/javascript" src="/main.js"></script>
 
 </html>
