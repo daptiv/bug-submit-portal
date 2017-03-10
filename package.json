@@ -1,0 +1,17 @@
+{
+  "name": "bug-submit-portal",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:daptiv/bug-submit-portal",
+  "author": "Adam Kalman <akalman@daptiv.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "browserify src/main.js > static/main.js && node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "browserify": "^14.1.0",
+    "express": "^4.15.2",
+    "request": "^2.81.0"
+  }
+}
