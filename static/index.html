@@ -3,44 +3,61 @@
 
   <body>
     <div class="form">
-      <h1>Bughouse Feedback System</h1>
-      <h2>File your feedback on Daptiv</h2>
+      <div class="header">
+        <h1>Bughouse Feedback System</h1>
+        <h2>File your feedback on Daptiv</h2>
+      </div>
 
-      <div class="side-by-side-controls">
+      <div class="content">
         <label>Title <input id="title" type="text" /></label>
-        <label>
-          Category
-          <select id="category">
-            <option>UI</option>
-            <option>Other</option>
-          </select>
-        </label>
-      </div>
 
-      <label class="simple-label">Page name or URL<input id="url" type="text" /></label>
-
-      <div class="simple-label">
-        Description
-        <div id="type">
-          <label><input type="radio" name="type" value="suggestion" /> Suggestion</label>
-          <label><input type="radio" name="type" value="feedback" /> Feedback</label>
+        <div class="half-size">
+          <label>
+            Category
+            <select id="category">
+              <option>UI</option>
+              <option>Resource Management</option>
+              <option>Timesheets</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>
+            Importance
+            <select id="importance">
+              <option>Severe</option>
+              <option>High</option>
+              <option selected>Medium</option>
+              <option>Low</option>
+            </select>
+          </label>
         </div>
-        <textarea id="description"></textarea>
-      </div>
 
-      <fieldset class="simple-label">
-        <legend>Upload Screenshot</legend>
-        <input id="screenshot" type=file accept="image/*" />
-        <img id="screenshot-data">
-      </fieldset>
+        <label>Page name or URL<input id="url" type="text" /></label>
 
-      <div class="side-by-side-controls">
-        <label>Your Name<input id="name" type="text" /></label>
-        <button onclick="sendBug()">Submit</button>
+        <div class="description-container">
+          Description for
+          <span class="type-container" id="type">
+            <label><input type="radio" name="type" value="suggestion" /> Suggestion</label>
+            <label onclick="appendBugText(event)"><input id="bug-input" type="radio" name="type" value="bug" /> Bug</label>
+          </span>
+          <div><textarea id="description"></textarea></div>
+        </div>
+
+        <div class="screenshot-container">
+          <legend>Upload Screenshot</legend>
+          <input id="screenshot" type=file accept="image/*" />
+          <img id="screenshot-data">
+        </div>
+
+        <div class="half-size">
+          <label>Your Name<input id="name" type="text" /></label>
+          <button class="submit-button" onclick="sendBug()">Submit</button>
+        </div>
       </div>
     </div>
   </body>
 
+  <link rel="stylesheet" type="text/css" href="/normalize.css">
   <link rel="stylesheet" type="text/css" href="/main.css">
   <script type="application/javascript" src="/main.js"></script>
 

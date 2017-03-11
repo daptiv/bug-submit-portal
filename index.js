@@ -15,16 +15,15 @@ app.post('/sendbug', function(req, res) {
     Description: formatDescription(req.body),
     Project: { Id: 140294 },
     Feature: getFeatureRef(req.body.category),
+    Priority: getPriority(req.body.importance),
     Tags: req.body.type
   };
-
-  console.log(payload);
 
   wreck.post(
     'https://daptiv.tpondemand.com/api/v1/Bugs',
     {
       headers: {
-        'Authorization': 'Basic xxx',
+        'Authorization': 'Basic ',
         'Content-Type': 'application/json'
       },
       payload: payload
@@ -34,6 +33,21 @@ app.post('/sendbug', function(req, res) {
 
   res.json({});
 });
+
+function getPriority(importance) {
+  switch (importance) {
+    case 'Severe':
+      return { Id: 27 };
+    case 'High':
+      return { Id: 26 };
+    case 'Medium':
+      return { Id: 7 };
+    case 'Low':
+      return { Id: 6 };
+    default:
+      throw new Error();
+  }
+}
 
 function sanitizish(dirty) {
   return sanitize(dirty, {
@@ -48,6 +62,10 @@ function getFeatureRef(category) {
       return { Id: 140296 };
     case 'Other':
       return { Id: 140304 };
+    case 'Resource Management':
+      return { Id: 140459 };
+    case 'Timesheets':
+      return { Id: 140460 };
     default:
       throw new Error();
   }
