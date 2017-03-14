@@ -1,0 +1,19 @@
+# How to use this file:
+# docker-compose up -d
+
+version: '2'
+services:
+  infosphere:
+    image: node
+    container_name: bughouse
+    volumes:
+      - $PWD:/infosphere
+      - ${CHEF_CONFIG_DIR}:/root/.chef
+    working_dir: /bughouse
+    ports:
+      - "3000:3000"
+    restart: always
+    command: |
+      bash -c 'bash -s <<EOF
+      npm start
+      EOF'

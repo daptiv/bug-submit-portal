@@ -23,7 +23,7 @@ app.post('/sendbug', function(req, res) {
     'https://daptiv.tpondemand.com/api/v1/Bugs',
     {
       headers: {
-        'Authorization': 'Basic ',
+        'Authorization': `Basic ${process.env['TP_CREDENTIALS']}`,
         'Content-Type': 'application/json'
       },
       payload: payload
