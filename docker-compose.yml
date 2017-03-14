@@ -11,6 +11,8 @@ services:
     working_dir: /bughouse
     ports:
       - "3000:3000"
+    environment:
+      - TP_CREDENTIALS
     restart: always
     command: |
       bash -c 'bash -s <<EOF
