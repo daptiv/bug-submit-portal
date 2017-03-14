@@ -3,12 +3,11 @@
 
 version: '2'
 services:
-  infosphere:
+  bughouse:
     image: node
     container_name: bughouse
     volumes:
-      - $PWD:/infosphere
-      - ${CHEF_CONFIG_DIR}:/root/.chef
+      - $PWD:/bughouse
     working_dir: /bughouse
     ports:
       - "3000:3000"
