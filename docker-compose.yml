@@ -4,7 +4,7 @@
 version: '2'
 services:
   bughouse:
-    image: node
+    image: daptiv/node
     container_name: bughouse
     volumes:
       - $PWD:/bughouse
@@ -16,5 +16,6 @@ services:
     restart: always
     command: |
       bash -c 'bash -s <<EOF
+      yarn install
       npm start
       EOF'
